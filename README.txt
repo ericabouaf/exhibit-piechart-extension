@@ -1,10 +1,17 @@
 
 Simile Exhibit PieChart Extension
+
 version 0.1 (February 9th, 2009)
 by Eric Abouaf <firstname.lastname@gmail.com>
 http://javascript.neyric.com/blog
 
 Provide a new viewing class Simile the Exhibit using the Google Visualization API.
+
+
+Demo :
+------
+
+http://neyric.com/~neyric/exhibit/piechart-extension/demo/presidents.html
 
 
 References :

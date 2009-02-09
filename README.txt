@@ -26,8 +26,19 @@ How to use :
 
 	<div ex:role="view" ex:viewClass="Piechart"></div>
 
+	you can limit the view properties :
 
-Limitations/TODO :
-------------------
+	<div ex:role="view" 
+			 ex:viewClass="Piechart"
+			 ex:groupProperties="party, religion, diedInOffice"></div>
+   
+	or change the size :
 
- * Add settings : width/height of the widget, selectable properties
+	<div ex:role="view" 
+			 ex:viewClass="Piechart"
+			 ex:groupProperties="party, religion, diedInOffice"
+			 ex:width="800"
+			 ex:height="480"
+			></div>
+
+

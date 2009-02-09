@@ -10,7 +10,10 @@ Exhibit.PiechartView = function(containerElmt, uiContext) {
     this._div = containerElmt;
     this._uiContext = uiContext;
 
-    this._settings = {};
+    this._settings = {
+       width: 600,
+       height: 360
+    };
     this._accessors = {};
 
     var view = this;
@@ -51,6 +54,10 @@ Exhibit.PiechartView.createFromDOM = function(configElmt, containerElmt, uiConte
     Exhibit.SettingsUtilities.collectSettingsFromDOM(configElmt, Exhibit.PiechartView._settingSpecs, view._settings);
     Exhibit.PiechartView._configure(view, configuration);
     
+    view._settings.groupProperties = Exhibit.getAttribute(configElmt, "groupProperties", ",") || [];
+    view._settings.width = parseInt( Exhibit.getAttribute(configElmt, "width") || 600);
+    view._settings.height = parseInt( Exhibit.getAttribute(configElmt, "height") || 360);
+    
     view._internalValidate();
     view._initializeUI();
     return view;
@@ -80,19 +87,34 @@ Exhibit.PiechartView.prototype._internalValidate = function() {
 };
 
 Exhibit.PiechartView.prototype._initializeUI = function() {
-   
-   var database = this._uiContext.getDatabase();
-   
-   
-   // Create the selectProperty SELECT element
-   this.selectProperty = document.createElement('select');
-   for(var key in database._properties) {
-      if(database._properties.hasOwnProperty(key)) {
-         var option = document.createElement('option');
-         option.innerHTML = database._propertyArray[i];
-         this.selectProperty.appendChild(option);
+   try {
+      
+      var label = document.createElement('div');
+      label.innerHTML = "View by : ";
+      this._div.appendChild(label);
+      
+      // Create the selectProperty SELECT element
+      this.selectProperty = document.createElement('select');
+      
+      if( this._settings.groupProperties.length > 0) {
+         for(var i = 0 ; i < this._settings.groupProperties.length ; i++) {
+            var option = document.createElement('option');
+            option.innerHTML = this._settings.groupProperties[i];
+            this.selectProperty.appendChild(option);
+         }
       }
-   }
+      else {
+         var database = this._uiContext.getDatabase();
+         for(var key in database._properties) {
+            if(database._properties.hasOwnProperty(key)) {
+               var option = document.createElement('option');
+               option.innerHTML = key;
+               this.selectProperty.appendChild(option);
+            }
+         }
+      }
+   
+   
    this._div.appendChild(this.selectProperty);
    var self = this;
    this.selectProperty.onchange = function() {
@@ -105,6 +127,9 @@ Exhibit.PiechartView.prototype._initializeUI = function() {
    
     
    this._reconstruct();
+}catch(ex) {
+   console.log(ex);
+}
 };
 
 
@@ -139,8 +164,8 @@ Exhibit.PiechartView.prototype._reconstruct = function() {
     
     
    var data = new google.visualization.DataTable();
-   data.addColumn('string', 'Task');
-   data.addColumn('number', 'Hours per Day');
+   data.addColumn('string', 'Value');
+   data.addColumn('number', 'Occurences');
    data.addRows(entries);
    var i = 0;
    for(key in valuesHash) {
@@ -152,6 +177,6 @@ Exhibit.PiechartView.prototype._reconstruct = function() {
    }
 
    var chart = new google.visualization.PieChart( this._chartDiv);
-   chart.draw(data, {width: 600, height: 360, is3D: true, title: 'Items grouped by '+groupingProperty});
+   chart.draw(data, {width: this._settings.width, height: this._settings.height, is3D: true, title: 'Items grouped by '+groupingProperty});
 };
 

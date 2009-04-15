@@ -1,5 +1,5 @@
 /*==================================================
- *  Exhibit.PiechartView Extension French localization
+ *  Exhibit.PiechartView Extension English localization
  *==================================================
  */
 

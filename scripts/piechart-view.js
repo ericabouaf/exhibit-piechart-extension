@@ -57,6 +57,7 @@ Exhibit.PiechartView.createFromDOM = function(configElmt, containerElmt, uiConte
     view._settings.groupProperties = Exhibit.getAttribute(configElmt, "groupProperties", ",") || [];
     view._settings.width = parseInt( Exhibit.getAttribute(configElmt, "width") || 600);
     view._settings.height = parseInt( Exhibit.getAttribute(configElmt, "height") || 360);
+    view._settings.backgroundColor = Exhibit.getAttribute(configElmt, "backgroundColor") || "white";
     
     view._internalValidate();
     view._initializeUI();
@@ -177,6 +178,12 @@ Exhibit.PiechartView.prototype._reconstruct = function() {
    }
 
    var chart = new google.visualization.PieChart( this._chartDiv);
-   chart.draw(data, {width: this._settings.width, height: this._settings.height, is3D: true, title: 'Items grouped by '+groupingProperty});
+   chart.draw(data, {
+      width: this._settings.width, 
+      height: this._settings.height, 
+      backgroundColor: this._settings.backgroundColor, 
+      is3D: true, 
+      title: 'Items grouped by '+groupingProperty
+   });
 };
 

@@ -1,45 +1,46 @@
 
 Simile Exhibit PieChart Extension
 
-version 0.1 (February 9th, 2009)
-by Eric Abouaf <firstname.lastname@gmail.com>
+by Eric Abouaf <eric.abouaf at gmail.com>
 http://javascript.neyric.com/blog
 
-Provide a new viewing class Simile the Exhibit using the Google Visualization API.
+PieChart viewing class for Simile Exhibit, using the Google Visualization API.
 
 
 Demo :
 ------
 
-http://neyric.com/~neyric/exhibit/piechart-extension/demo/presidents.html
+http://javascript.neyric.com/piechart-extension/demo/presidents.html
 
 
-References :
-------------
+How to use it :
+---------------
 
- * Simile Exhibit: http://code.google.com/p/simile-widgets/
- * Google Visualization API: http://code.google.com/apis/visualization/documentation/gallery/piechart.html
+The piechart-extension implements a viewClass. To add it to your exhibit:
 
-
-How to use :
-------------
-
- * Add the 2 following scripts :
-
+ * Add the 2 following scripts to your page :
+	
+	<!-- We use the Google Visualization API to generate the pie -->
 	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<!-- The piechart extension -->
 	<script src="/path/to/piechart-extension/piechart-extension.js" type="text/javascript"></script>
 
  * Add the view :
 
 	<div ex:role="view" ex:viewClass="Piechart"></div>
 
-	you can limit the view properties :
+
+Configuration :
+---------------
+
+ *	you can limit the view properties :
 
 	<div ex:role="view" 
 			 ex:viewClass="Piechart"
 			 ex:groupProperties="party, religion, diedInOffice"></div>
    
-	or change the size :
+  * change the size :
 
 	<div ex:role="view" 
 			 ex:viewClass="Piechart"
@@ -48,4 +49,17 @@ How to use :
 			 ex:height="480"
 			></div>
 
+	* change the background color	:
+		<div ex:role="view" 
+				 ex:viewClass="Piechart"
+				 ex:groupProperties="party, religion, dieInOffice"
+				 ex:width="800"
+				 ex:height="480"
+				 ex:backgroundColor="#DFFFFF"
+				></div>
 
+References :
+------------
+
+ * Simile Exhibit: http://code.google.com/p/simile-widgets/
+ * Google Visualization API: http://code.google.com/apis/visualization/documentation/gallery/piechart.html

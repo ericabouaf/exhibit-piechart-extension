@@ -10,7 +10,7 @@ PieChart viewing class for Simile Exhibit, using the Google Visualization API.
 Demo :
 ------
 
-http://javascript.neyric.com/piechart-extension/demo/presidents.html
+http://javascript.neyric.com/exhibit-piechart-extension/demo/presidents.html
 
 
 How to use it :

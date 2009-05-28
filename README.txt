@@ -63,3 +63,12 @@ References :
 
  * Simile Exhibit: http://code.google.com/p/simile-widgets/
  * Google Visualization API: http://code.google.com/apis/visualization/documentation/gallery/piechart.html
+
+
+
+Licensing and legal issues
+--------------------------
+
+Exhibit-piechart-extension is open source software and are licensed under the BSD license
+located in the LICENSE.txt file located in the same directory as this very file
+you are reading.

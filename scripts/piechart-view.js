@@ -77,6 +77,8 @@ Exhibit.PiechartView._configure = function(view, configuration) {
 };
 
 Exhibit.PiechartView.prototype.dispose = function() {    
+    this._uiContext.getCollection().removeListener(this._listener);
+    
     this._div.innerHTML = "";
     this._div = null;
     

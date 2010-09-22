@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Exhibit PieChart Extension</title>
+</head>
+
+<body>
+
+<div style="margin: 60px auto; width: 600px;">
+	<h1>Exhibit PieChart Extension</h1>
+
+	<p>PieChart viewing class for Simile Exhibit, using the Google Visualization API.</p>
+
+
+	<h2>Demo</h2>
+	
+	<p><a href="demo/index.html">Presidents exhibit</a> (adapted from the original Exhibit example)</p>
+
+	<h2>Usage</h2>
+	
+	<p>The piechart-extension implements a viewClass. To add it to your exhibit:</p>
+	
+	<ul>
+		<li>Add the 2 following scripts to your page :
+
+				<pre>
+&lt;!-- We use the Google Visualization API to generate the pie --&gt;
+&lt;script src="http://www.google.com/jsapi" type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;!-- The piechart extension --&gt;
+&lt;script src="/path/to/piechart-extension/piechart-extension.js" type="text/javascript"&gt;&lt;/script&gt;
+				</pre>
+		</li>
+
+		<li>Add the view :
+			<pre>
+&lt;div ex:role="view" ex:viewClass="Piechart"&gt;&lt;/div&gt;
+			</pre>
+		</li>
+		<ul>
+
+	<h2>Configuration</h2>
+
+	<ul>
+		<li>you can limit the view properties :
+<pre>
+		&lt;div ex:role="view" 
+				 ex:viewClass="Piechart"
+				 ex:groupProperties="party, religion, diedInOffice"&gt;&lt;/div&gt;
+</pre>
+		</li>
+
+		<li>change the size :</li>
+<pre>
+		&lt;div ex:role="view" 
+				 ex:viewClass="Piechart"
+				 ex:groupProperties="party, religion, diedInOffice"
+				 ex:width="800"
+				 ex:height="480"
+				&gt;&lt;/div&gt;
+		</li>
+
+		<li>change the background color	:</li>
+<pre>
+			&lt;div ex:role="view" 
+					 ex:viewClass="Piechart"
+					 ex:groupProperties="party, religion, dieInOffice"
+					 ex:width="800"
+					 ex:height="480"
+					 ex:backgroundColor="#DFFFFF"
+					&gt;&lt;/div&gt;
+</pre>
+	</li>
+	</ul>
+
+
+	<h2>References</h2>
+
+	<ul>
+		<li>Simile Exhibit: <a href="http://code.google.com/p/simile-widgets/">http://code.google.com/p/simile-widgets/</a></li>
+		<li>Google Visualization API: <a href="http://code.google.com/apis/visualization/documentation/gallery/piechart.html">http://code.google.com/apis/visualization/documentation/gallery/piechart.html</a></li>
+	</ul>
+
+
+</div>
+
+</body>
+</html>
